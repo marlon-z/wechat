@@ -1,0 +1,7 @@
+﻿德语(de-DE) - 1189行附近：toolbar中添加 strikethrough: 'Durchgestrichen'
+葡萄牙语(pt-BR) - 1299行附近：toolbar中添加 strikethrough: 'Tachado'
+俄语(ru-RU) - 1409行附近：toolbar中添加 strikethrough: 'Зачеркнутый'
+阿拉伯语(ar-SA) - 1519行附近：toolbar中添加 strikethrough: 'يتوسطه خط'
+印地语(hi-IN) - 1629行附近：toolbar中添加 strikethrough: 'हटई गई'
+韩语(ko-KR) - 1739行附近：toolbar中添加 strikethrough: '취소선'
+日语(ja-JP) - 1849行附近：toolbar中添加 strikethrough: '取り消し'

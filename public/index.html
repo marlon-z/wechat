@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover" />
+    <meta name="theme-color" content="#00b96b" />
+    <meta
+      name="description"
+      content="一款功能强大、简单易用的在线Markdown编辑器，支持即时预览、代码高亮、微信公众号排版、多种主题风格等功能。"
+    />
+    <meta name="keywords" content="Markdown, 编辑器, 在线工具, 微信公众号, 排版, 文档编辑, 代码高亮" />
+    <meta name="author" content="Markdown编辑器团队" />
+    <meta name="robots" content="index, follow" />
+    <!-- 性能优化 -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    
+    <!-- 添加特定浏览器渲染提示 -->
+    <meta name="renderer" content="webkit"><!-- 优先使用Chrome内核 -->
+    <meta name="force-rendering" content="webkit"><!-- 强制使用最新Chrome内核 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><!-- 优先使用IE最新版本和Chrome -->
+    
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="canonical" href="https://yourdomain.com/" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>Markdown编辑器 - 简单高效的在线Markdown工具</title>
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://yourdomain.com/" />
+    <meta property="og:title" content="Markdown编辑器 - 简单高效的在线Markdown工具" />
+    <meta property="og:description" content="一款功能强大、简单易用的在线Markdown编辑器，支持即时预览、代码高亮、微信公众号排版、多种主题风格等功能。" />
+    <meta property="og:image" content="https://yourdomain.com/logo.png" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://yourdomain.com/" />
+    <meta property="twitter:title" content="Markdown编辑器 - 简单高效的在线Markdown工具" />
+    <meta property="twitter:description" content="一款功能强大、简单易用的在线Markdown编辑器，支持即时预览、代码高亮、微信公众号排版、多种主题风格等功能。" />
+    <meta property="twitter:image" content="https://yourdomain.com/logo.png" />
+    
+    <!-- 结构化数据 -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Markdown编辑器",
+        "applicationCategory": "WebApplication",
+        "operatingSystem": "Web",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "CNY"
+        },
+        "description": "一款功能强大、简单易用的在线Markdown编辑器，支持即时预览、代码高亮、微信公众号排版、多种主题风格等功能。"
+      }
+    </script>
+    
+    <!-- 资源预加载优化 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- 浏览器特定CSS -->
+    <link rel="stylesheet" href="%PUBLIC_URL%/browser-specific.css" />
+    
+    <!-- 缓存控制 -->
+    <meta http-equiv="Cache-Control" content="max-age=86400" />
+    
+    <!-- 特定浏览器CSS优化 -->
+    <style>
+      /* Chrome和Safari滚动优化 */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background-color: rgba(155, 155, 155, 0.5);
+        border-radius: 4px;
+      }
+      
+      /* 移动设备优化 */
+      @media (max-width: 768px) {
+        .complex-animation {
+          animation: none !important;
+          transition: opacity 0.3s ease !important;
+        }
+        
+        .simplified-for-mobile {
+          transform: none !important;
+          animation: none !important;
+        }
+      }
+      
+      /* 支持减少动画的用户 */
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation-duration: 0.01s !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01s !important;
+          scroll-behavior: auto !important;
+        }
+      }
+      
+      /* 针对高对比度模式的优化 */
+      @media (prefers-contrast: more) {
+        :root {
+          --md-border-color: #000000 !important;
+          --md-text-color: #000000 !important;
+          --md-bg-color: #ffffff !important;
+        }
+      }
+      
+      /* 针对浏览器打印功能的优化 */
+      @media print {
+        .no-print {
+          display: none !important;
+        }
+        
+        body {
+          font-size: 12pt !important;
+          line-height: 1.5 !important;
+          color: #000 !important;
+          background: #fff !important;
+        }
+        
+        .markdown-preview {
+          width: 100% !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          border: none !important;
+        }
+      }
+      
+      /* 支持对深色模式敏感的组件 */
+      @media (prefers-color-scheme: dark) {
+        .auto-color-mode:not([data-color-mode]) {
+          --md-bg-color: #1a1a1a !important;
+          --md-text-color: #e0e0e0 !important;
+          --md-border-color: #404040 !important;
+        }
+      }
+    </style>
+    
+    <!-- 图片加载优化脚本 -->
+    <script src="%PUBLIC_URL%/imageLoader.js" defer></script>
+    
+    <!-- 浏览器特定优化脚本 - 最先加载，提前优化 -->
+    <script src="%PUBLIC_URL%/browser-optimizations.js"></script>
+    
+    <!-- IE浏览器降级支持脚本 -->
+    <script src="%PUBLIC_URL%/ie-fallback.js"></script>
+  </head>
+  <body>
+    <noscript>您需要启用JavaScript才能运行此应用。</noscript>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  </body>
+</html>

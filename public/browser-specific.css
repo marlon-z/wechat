@@ -1,0 +1,244 @@
+/* 浏览器特定优化 CSS */
+
+/* ============= Chrome 特定优化 ============= */
+.browser-chrome .hardware-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.browser-chrome .smooth-animation {
+  transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1.0);
+}
+
+.browser-chrome .scrollable {
+  scroll-behavior: smooth;
+}
+
+/* Chrome 75+ 支持 scrollbar 自定义 */
+@supports (scrollbar-width: thin) {
+  .browser-chrome .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(155, 155, 155, 0.5) transparent;
+  }
+}
+
+/* ============= Firefox 特定优化 ============= */
+.browser-firefox * {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(155, 155, 155, 0.5) transparent;
+}
+
+/* 修复Firefox中的某些渲染问题 */
+.browser-firefox .flex-container {
+  overflow: hidden;
+  width: 100%;
+}
+
+/* Firefox 70+ 文本渲染优化 */
+.browser-firefox .text-content {
+  font-feature-settings: "kern", "liga", "clig", "calt";
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 针对Firefox的特殊表格性能优化 */
+.browser-firefox table {
+  contain: content;
+}
+
+/* ============= Safari 特定优化 ============= */
+/* Safari视觉调整 */
+.browser-safari .rounded-corners {
+  border-radius: 5px;
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+}
+
+/* 修复Safari中的字体渲染问题 */
+.browser-safari .text-content {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* 修复Safari中的position:sticky问题 */
+.browser-safari .sticky-element {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* 修复Safari图片渲染问题 */
+.browser-safari img {
+  transform: translateZ(0);
+}
+
+/* ============= Edge 特定优化 ============= */
+/* 旧版Edge (EdgeHTML)优化 */
+.browser-edge:not(.edge-79):not(.edge-80):not(.edge-81):not(.edge-82) .edge-fallback {
+  display: block !important;
+}
+
+/* 新版Edge (Chromium)优化 - 运用和Chrome相同的优化 */
+.browser-edge.edge-79, 
+.browser-edge.edge-80, 
+.browser-edge.edge-81,
+.browser-edge.edge-82 {
+  /* 这里可以重用Chrome的优化 */
+}
+
+/* ============= IE 特定优化 ============= */
+/* IE显示降级 */
+.browser-ie .modern-feature {
+  display: none !important;
+}
+
+.browser-ie .ie-fallback {
+  display: block !important;
+}
+
+/* IE不支持Grid, 切回使用表格或Flexbox后备方案 */
+.browser-ie .grid-container {
+  display: table !important;
+  width: 100% !important;
+}
+
+.browser-ie .grid-item {
+  display: table-cell !important;
+}
+
+/* ============= 移动设备特定优化 ============= */
+.mobile-device .editor-toolbar {
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.mobile-device .editor-button {
+  padding: 12px !important; /* 更大的触摸目标 */
+  margin: 2px !important;
+}
+
+.mobile-device .simplified-for-mobile {
+  /* 为移动设备简化界面元素 */
+  transition: none !important;
+  animation: none !important;
+  transform: none !important;
+}
+
+.mobile-device .large-touch-target {
+  min-height: 48px;
+  min-width: 48px;
+}
+
+/* 移动设备字体优化 */
+.mobile-device {
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* ============= 打印优化 ============= */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  
+  .markdown-preview, .markdown-preview * {
+    visibility: visible;
+  }
+  
+  .markdown-preview {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+  
+  /* 移除打印时的链接URL显示 */
+  a:after {
+    content: "" !important;
+  }
+  
+  /* 确保代码块在打印时不会被截断 */
+  pre, code {
+    white-space: pre-wrap !important;
+    word-break: break-all !important;
+  }
+}
+
+/* ============= 高对比度模式优化 ============= */
+@media (prefers-contrast: more) {
+  /* 增强文本对比度 */
+  body {
+    color: #000000 !important;
+    background-color: #ffffff !important;
+  }
+  
+  a {
+    color: #0000EE !important;
+    text-decoration: underline !important;
+  }
+  
+  /* 增强边框对比度 */
+  button, input, select, textarea {
+    border: 2px solid #000000 !important;
+  }
+  
+  /* 确保所有图标可见 */
+  .icon, .anticon, svg {
+    fill: currentColor !important;
+    color: currentColor !important;
+  }
+}
+
+/* ============= 暗色模式优化 ============= */
+@media (prefers-color-scheme: dark) {
+  .auto-color-mode:not([data-color-mode]) {
+    /* 基础颜色变量 */
+    --primary-color: #1890ff;
+    --background-color: #181818;
+    --surface-color: #222222;
+    --text-color: #e0e0e0;
+    --secondary-text-color: #a0a0a0;
+    --border-color: #404040;
+    
+    /* 应用颜色变量 */
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+  
+  .auto-color-mode:not([data-color-mode]) .card, 
+  .auto-color-mode:not([data-color-mode]) .panel {
+    background-color: var(--surface-color);
+    border-color: var(--border-color);
+  }
+  
+  /* 暗色模式下的图片亮度调整 */
+  .auto-color-mode:not([data-color-mode]) img:not([src*=".svg"]) {
+    filter: brightness(0.85);
+  }
+}
+
+/* ============= 浏览器兼容性修复 ============= */
+/* Fix for Firefox focus ring */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--primary-color, #1890ff);
+}
+
+/* 修复Safari中的date输入框 */
+input[type="date"], 
+input[type="time"], 
+input[type="datetime-local"] {
+  -webkit-appearance: none;
+}
+
+/* 移除旧浏览器中输入框的默认样式 */
+input, textarea, select, button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+} 
